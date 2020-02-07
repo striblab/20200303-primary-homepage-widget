@@ -7,7 +7,7 @@ html, body {
 body {
 	color: #333;
 	margin: 0;
-	padding: 8px;
+	padding: 0;
 	box-sizing: border-box;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
@@ -58,4 +58,112 @@ button:active {
 
 button:focus {
 	border-color: #666;
+}
+
+#widgetContainer {
+	max-width: 970px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 8px;
+}
+
+.candidate {
+	margin: 1em;
+	display: flex;
+	align-items: center;
+	max-width: 225px;
+	.mug {
+		width: 100px;
+		margin-right: 10px;
+	}
+
+	.results {
+		display: inline-block;
+
+		.winner {
+			font-weight: bold;
+		}
+	}
+
+	.votecount {
+		font-size: 15px;
+	}
+
+	.votepct {
+		font-size: 15px;
+	}
+}
+
+p.lastUpdated {
+	font-family: "Benton Sans", sans-serif;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #888888;
+	margin-top: 0;
+	margin-bottom: 12px;
+	margin-left: 1em;
+}
+
+.results {
+	h2 {
+		margin-top: 0;
+		margin-bottom: 5px;
+	}
+}
+
+@media (max-width: 850px) {
+
+	h2 {
+		font-size: 1em;
+		max-width: 50px;
+	}
+
+	.candidate {
+		max-width: 175px;
+		margin: 10px;
+		.mug {
+			width: 75px;
+			margin-right: 5px;
+		}
+
+		.votepct {
+			font-size: 12px;
+		}
+
+		.votecount {
+			font-size: 13px;
+		}
+	}
+}
+
+@media (max-width: 700px) {
+	.candidate {
+		max-width: 75px;
+	}
+	.results h2 {
+		font-size: 0.85em;
+		margin-bottom: 3px;
+	}
+	.candidate {
+		.mug {
+			display: none;
+		}
+
+		.votecount {
+			display: none;
+		}
+	}
+
+	.candidate {
+		margin: 0;
+		padding-left: 0;
+	}
+
+	.candidate:nth-of-type(2), .candidate:nth-of-type(3), .candidate:nth-of-type(4) {
+		margin: 0;
+		padding: 0 7px;
+		border-left: 1.5px solid #E8E8E8;
+	}
+
 }

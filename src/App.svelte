@@ -34,36 +34,25 @@
 </script>
 
 <style>
-	.candidate {
-		margin: 1em;
-	}
-	.candidate .mug {
-		width: 100px;
-	}
 
-	.candidate .results {
-		display: inline-block;
-	}
-
-	p.lastUpdated {
-		font-family: "Benton Sans", sans-serif;
-		font-size: 12px;
-		text-transform: uppercase;
-		color: #888888;
-		margin-top: 0;
-		margin-bottom: 12px;
-	}
 </style>
-
-{#each statewide_data as candidate, i}
-	{#if i < 4}<div class="candidate">
-		<img class="mug" src="img/avatar.jpg" alt="{candidate.last} photo"/>
-		<div class="results">
-			<h2>{candidate.first} {candidate.last}</h2>
-			{#if candidate.winner == true}<div class="winner">&#10004; I won!</div>{/if}
-			<div class="votecount">{intcomma(candidate.votecount)}</div>
-			<div class="votepct">{Math.round(candidate.votepct * 100) }%</div>
-		</div>
-	</div>{/if}
-{/each}
-<p class="lastUpdated">Last change: {last_updated}</p>
+<div id="widgetContainer">
+	{#each statewide_data as candidate, i}
+		{#if i < 4}
+		<div class="candidate">
+			<img class="mug" src="img/avatar.jpg" alt="{candidate.last} photo"/>
+			<div class="results">
+				<h2>{candidate.first} {candidate.last}</h2>
+				<div class="votepct">
+					{#if candidate.winner == true}
+						<span class="winner">&#10004 {Math.round(candidate.votepct * 100) }%</span>
+					{:else}
+						{Math.round(candidate.votepct * 100) }%
+					{/if}
+				</div>
+				<div class="votecount">Votes: {intcomma(candidate.votecount)}</div>
+			</div>
+		</div>{/if}
+	{/each}
+</div>
+<p class="lastUpdated">Last updated: {last_updated}</p>
