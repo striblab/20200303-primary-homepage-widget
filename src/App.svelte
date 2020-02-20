@@ -57,21 +57,48 @@
 
 	<div class="candidateContainer">
 		{#each statewide_data as candidate, i}
-			{#if i < 4}
-			<div class="candidate">
-				<img class="mug" src="img/{candidate.last.toLowerCase()}.jpg" alt="{candidate.last} photo"/>
-				<div class="results">
-					<h2>{candidate.last}</h2>
-					<div class="votepct">
+			{#if statewide_data[0].winner == true}
+				{#if i < 4}
+				<div class="candidate">
+					<img class="mug" src="img/{candidate.last.toLowerCase()}.jpg" alt="{candidate.last} photo"/>
+					<div class="results">
 						{#if candidate.winner == true}
-							<span class="winner">&#10004 {Math.round(candidate.votepct * 1000) / 10 }%</span>
+							<h2 class="winner">{candidate.last} &#10004</h2>
 						{:else}
-							{Math.round(candidate.votepct * 1000) / 10  }<span class="pct">%</span>
+							<h2 class="no-winner">{candidate.last}</h2>
 						{/if}
+						<div class="votepct">
+							{#if candidate.winner == true}
+								<span class="winner">{Math.round(candidate.votepct * 1000) / 10 }%</span>
+							{:else}
+								<span class="no-winner-pct">{Math.round(candidate.votepct * 1000) / 10  }<span class="pct">%</span></span>
+							{/if}
+						</div>
+						<div class="votecount">Votes: {intcomma(candidate.votecount)}</div>
 					</div>
-					<div class="votecount">Votes: {intcomma(candidate.votecount)}</div>
 				</div>
-			</div>
+				{/if}
+			{:else}
+				{#if i < 4}
+				<div class="candidate">
+					<img class="mug" src="img/{candidate.last.toLowerCase()}.jpg" alt="{candidate.last} photo"/>
+					<div class="results">
+						<!-- {#if candidate.winner == true}
+							<h2 class="winner">{candidate.last} &#10004</h2>
+						{:else} -->
+							<h2>{candidate.last}</h2>
+						<!-- {/if} -->
+						<div class="votepct">
+							<!-- {#if candidate.winner == true}
+								<span class="winner">{Math.round(candidate.votepct * 1000) / 10 }%</span>
+							{:else} -->
+								<span class="no-winner-pct">{Math.round(candidate.votepct * 1000) / 10  }<span class="pct">%</span></span>
+							<!-- {/if} -->
+						</div>
+						<div class="votecount">Votes: {intcomma(candidate.votecount)}</div>
+					</div>
+				</div>
+				{/if}
 			{/if}
 		{/each}
 	</div>
