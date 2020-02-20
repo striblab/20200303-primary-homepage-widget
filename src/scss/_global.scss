@@ -215,9 +215,32 @@ p.lastUpdated {
 		// 	font-size: 9.5px;
 		// }
 	}
+
+	.logo {
+			img {
+				margin-top: -28px;
+				margin-left: 2px;
+			}
+	}
 }
 
-@media (max-width: 600px) {
+@media (max-width: 725px) {
+	.logo {
+		img {
+			margin-top: -40px;
+			margin-left: 2px;
+		}
+	}
+}
+
+@media (max-width: 800px) {
+
+	.candidateContainer {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		// align-items: center;
+	}
 
 	.logo {
 		// justify-content: space-between;
@@ -225,6 +248,9 @@ p.lastUpdated {
 		margin-top: 0;
 		width: 100%;
 		max-width: none;
+		height: 24px;
+		border-top: 0.5px solid #D7D7D7;
+		border-bottom: 0.5px solid #d7d7d7;
 		a {
 			display: none;
 		}
@@ -233,29 +259,39 @@ p.lastUpdated {
 			position: absolute;
 			right: 8px;
 		}
+
+		img {
+			margin-top: 0;
+			margin-left: 3px;
+			z-index: 100;
+		}
 	}
 
   #widgetContainer {
 		flex-direction: column;
 	}
 
+	p.lastUpdated {
+		text-align: center;
+		margin-top: 7px;
+	}
+
+	.candidate:nth-of-type(1) {
+		border-left: none;
+		padding-left: 0;
+	}
+
 }
 
-@media (max-width: 450px) {
+@media (max-width: 600px) {
 	.candidate {
 		.mug {
-			width: 40px;
-		}
-
-		.votecount {
 			display: none;
 		}
 	}
+}
 
-	.candidate {
-		margin: 3px;
-		padding: 2px;
-	}
+@media (max-width: 375px) {
 
 	.candidate:nth-of-type(4){
 		display: none;

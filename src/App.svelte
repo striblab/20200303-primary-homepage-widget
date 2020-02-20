@@ -4,7 +4,7 @@
 
 	let json = [];
 	let statewide_data = [];
-	let last_updated;
+	let state_precincts_pct;
 	const date_options = { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric'};
 
 	$ : {
@@ -14,11 +14,18 @@
 			return b.votecount - a.votecount;
 		});
 
-		if (statewide_data.length > 0) {
-			last_updated = new Date(statewide_data[0].lastupdated).toLocaleString('en-US', date_options)
-		} else {
-			last_updated = "Retrieving data..."
+		if (statewide_data.length == 0) {
+			state_precincts_pct = '';
 		}
+		else {
+			state_precincts_pct = statewide_data[0].precinctsreportingpct;
+		}
+
+		// if (statewide_data.length > 0) {
+		// 	last_updated = new Date(statewide_data[0].lastupdated).toLocaleString('en-US', date_options)
+		// } else {
+		// 	last_updated = "Retrieving data..."
+		// }
 
 	}
 
@@ -52,14 +59,14 @@
 		{#each statewide_data as candidate, i}
 			{#if i < 4}
 			<div class="candidate">
-				<img class="mug" src="img/avatar.jpg" alt="{candidate.last} photo"/>
+				<img class="mug" src="img/{candidate.last.toLowerCase()}.jpg" alt="{candidate.last} photo"/>
 				<div class="results">
 					<h2>{candidate.last}</h2>
 					<div class="votepct">
 						{#if candidate.winner == true}
-							<span class="winner">&#10004 {Math.round(candidate.votepct * 100) }%</span>
+							<span class="winner">&#10004 {Math.round(candidate.votepct * 1000) / 10 }%</span>
 						{:else}
-							{Math.round(candidate.votepct * 100) }<span class="pct">%</span>
+							{Math.round(candidate.votepct * 1000) / 10  }<span class="pct">%</span>
 						{/if}
 					</div>
 					<div class="votecount">Votes: {intcomma(candidate.votecount)}</div>
@@ -70,4 +77,4 @@
 	</div>
 
 </div>
-<p class="lastUpdated">{last_updated}% REPORTING</p>
+<p class="lastUpdated">{ Math.round(state_precincts_pct * 100) }% PRECINCTS REPORTING</p>
