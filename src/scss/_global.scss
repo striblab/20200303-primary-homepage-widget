@@ -5,7 +5,10 @@ html, body {
 }
 
 h2 {
-	font-size: 13px;
+	font-family: "Benton Sans", sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	letter-spacing: 0.1px;
 }
 
 body {
@@ -89,24 +92,32 @@ button:focus {
 	align-items: center;
 	max-width: 210px;
 	margin-right: 10px;
+	margin-left: 0px;
 
 	a.rightLink {
 		display: none;
 		font-family: "Benton Sans", sans-serif;
+		font-weight: normal;
 		text-transform: capitalize;
 		font-size: 10px;
-		color: #a9a9a9;
+		color: #231F20;
 	}
 
 	.text a {
 		font-family: "Benton Sans", sans-serif;
-		text-transform: capitalize;
+		font-weight: normal;
+		text-transform: none;
 		font-size: 10px;
-		color: #a9a9a9;
+		line-height: 120%;
+		color: #231F20;
+		max-width: 80px;
 	}
+
 	h3 {
-		font-size: 16px;
-		margin-bottom: 0;
+		font-family: "Benton Sans", sans-serif;
+		font-size: 13px;
+		letter-spacing: 0.4px;
+		margin-bottom: 2px;
 		margin-top: 0;
 	}
 
@@ -117,17 +128,23 @@ button:focus {
 	}
 
 	img {
-		width: 40px;
+		width: 36px;
+		margin-top: -28px;
+		margin-left: -4px;
 	}
 }
 
 .candidate {
-	margin: 20px;
+	// margin: 20px;
+	margin: 0 0 0 20px;
+	padding-left: 20px;
 	display: flex;
 	align-items: center;
 	max-width: 230px;
+	border-left: .25px solid #D7D7D7;
+
 	.mug {
-		width: 75px;
+		width: 56px;
 		margin-right: 10px;
 	}
 
@@ -137,25 +154,35 @@ button:focus {
 		.winner {
 			font-weight: bold;
 		}
+
+		.pct {
+			font-family: "Popular";
+		}
+
+
 	}
 
 	.votecount {
-		font-size: 11px;
+		font-family: "Benton Sans", sans-serif;
+		font-size: 9px;
+		letter-spacing: 0.5px;
 	}
 
 	.votepct {
-		font-size: 13px;
+		font-family: "Benton Sans", sans-serif;
+		font-size: 24px;
 	}
 }
 
 p.lastUpdated {
 	font-family: "Benton Sans", sans-serif;
-	font-size: 10px;
+	font-size: 7.5px;
+	letter-spacing: 0.5px;
 	text-transform: uppercase;
-	color: #888888;
+	color: #2A2A2A;
 	margin-top: 0;
 	margin-bottom: 12px;
-	margin-left: 1em;
+	margin-left: 1.75em;
 }
 
 .results {
@@ -176,17 +203,17 @@ p.lastUpdated {
 		max-width: 175px;
 		margin: 10px;
 		.mug {
-			width: 60px;
+			width: 56px;
 			margin-right: 5px;
 		}
 
-		.votepct {
-			font-size: 9.5px;
-		}
-
-		.votecount {
-			font-size: 9.5px;
-		}
+		// .votepct {
+		// 	font-size: 9.5px;
+		// }
+		//
+		// .votecount {
+		// 	font-size: 9.5px;
+		// }
 	}
 }
 
@@ -195,6 +222,7 @@ p.lastUpdated {
 	.logo {
 		// justify-content: space-between;
 		margin-right: 0;
+		margin-top: 0;
 		width: 100%;
 		max-width: none;
 		a {

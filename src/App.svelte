@@ -36,15 +36,17 @@
 <style>
 
 </style>
+
 <div id="widgetContainer">
 	<div class="logo">
-		<img src="img/ELEX2020.svg" alt="Election 2020"/>
 		<div class="text">
-			<h3>ELECTION 2020</h3>
-			<a href="startribune.com">SEE FULL RESULTS</a>
+			<h3>ELECTION</h3>
+			<a href="startribune.com">See full Minn. Primary results</a>
 		</div>
+		<img src="img/ELEX2020.svg" alt="Election 2020"/>
 		<a class="rightLink" href="startribune.com">SEE FULL RESULTS</a>
 	</div>
+
 
 	<div class="candidateContainer">
 		{#each statewide_data as candidate, i}
@@ -57,7 +59,7 @@
 						{#if candidate.winner == true}
 							<span class="winner">&#10004 {Math.round(candidate.votepct * 100) }%</span>
 						{:else}
-							{Math.round(candidate.votepct * 100) }%
+							{Math.round(candidate.votepct * 100) }<span class="pct">%</span>
 						{/if}
 					</div>
 					<div class="votecount">Votes: {intcomma(candidate.votecount)}</div>
@@ -68,4 +70,4 @@
 	</div>
 
 </div>
-<p class="lastUpdated">Last updated: {last_updated}</p>
+<p class="lastUpdated">{last_updated}% REPORTING</p>
