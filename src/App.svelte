@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import {intcomma} from 'journalize';
+	import * as pym from 'pym.js';
 
 	let json = [];
 	let statewide_data = [];
@@ -38,6 +39,8 @@
     const response = await fetch("https://static.startribune.com/elections/projects/2020-election-results/json/results-latest.json");
     json = await response.json();
   }, 15000);
+
+	var pymChild = new pym.Child({ polling: 500});
 </script>
 
 <style>

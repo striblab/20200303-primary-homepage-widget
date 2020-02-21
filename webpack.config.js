@@ -112,14 +112,14 @@ module.exports = {
 		    staging: {
 		      region: 'us-west-1',
 		      params: {
-		        Bucket: 'static.startribune.com/staging/news/projects/all/YYYYMMDD-project-name/build',
+		        Bucket: 'static.startribune.com/staging/news/projects/all/20200303-primary-homepage-widget/build',
 		        DistributionId: 'BUCKETIDHERE'
 		      }
 		    },
 		    production: {
 		      region: 'us-west-1',
 		      params: {
-		        Bucket: 'static.startribune.com/news/projects/all/YYYYMMDD-project-name/build',
+		        Bucket: 'static.startribune.com/news/projects/all/20200303-primary-homepage-widget/build',
 		        DistributionId: 'BUCKETIDHERE'
 		      }
 		    }
