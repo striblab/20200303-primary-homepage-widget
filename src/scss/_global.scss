@@ -13,6 +13,7 @@ h2 {
 
 body {
 	color: #333;
+	height: auto !important;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -185,7 +186,6 @@ p.lastUpdated {
 	text-transform: uppercase;
 	color: #2A2A2A;
 	margin-top: 0;
-	margin-bottom: 12px;
 	margin-left: 1.75em;
 }
 

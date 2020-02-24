@@ -33,6 +33,7 @@
 	onMount(async function() {
     const response = await fetch("https://static.startribune.com/elections/projects/2020-election-results/json/results-latest.json");
     json = await response.json();
+		pymChild.sendHeight();
   });
 
 	setInterval(async function() {
@@ -41,6 +42,7 @@
   }, 15000);
 
 	var pymChild = new pym.Child({ polling: 500});
+
 </script>
 
 <style>
@@ -63,7 +65,9 @@
 			{#if statewide_data[0].winner == true}
 				{#if i < 4}
 				<div class="candidate">
+					{#if candidate.last !== 'Uncommited'}
 					<img class="mug" src="img/{candidate.last.toLowerCase()}.jpg" alt="{candidate.last} photo"/>
+					{/if}
 					<div class="results">
 						{#if candidate.winner == true}
 							<h2 class="winner">{candidate.last} &#10004</h2>
@@ -95,7 +99,7 @@
 							<!-- {#if candidate.winner == true}
 								<span class="winner">{Math.round(candidate.votepct * 1000) / 10 }%</span>
 							{:else} -->
-								<span class="no-winner-pct">{Math.round(candidate.votepct * 1000) / 10  }<span class="pct">%</span></span>
+								<span class="no-winner">{Math.round(candidate.votepct * 1000) / 10  }<span class="pct">%</span></span>
 							<!-- {/if} -->
 						</div>
 						<div class="votecount">Votes: {intcomma(candidate.votecount)}</div>
@@ -105,6 +109,5 @@
 			{/if}
 		{/each}
 	</div>
-
 </div>
-<p class="lastUpdated">{ Math.round(state_precincts_pct * 100) }% PRECINCTS REPORTING</p>
+	<p class="lastUpdated">{ Math.round(state_precincts_pct * 100) }% PRECINCTS REPORTING</p>
