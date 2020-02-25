@@ -25,13 +25,13 @@ a {
 	text-decoration: none;
 }
 
-a:hover {
-	text-decoration: underline;
-}
-
-a:visited {
-	color: rgb(0,80,160);
-}
+// a:hover {
+// 	text-decoration: underline;
+// }
+//
+// a:visited {
+// 	color: rgb(0,80,160);
+// }
 
 label {
 	display: block;
@@ -74,7 +74,7 @@ button:focus {
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
-	padding: 8px;
+	// padding: 8px;
 	padding-bottom: 0;
 }
 
@@ -137,8 +137,8 @@ button:focus {
 
 .candidate {
 	// margin: 20px;
-	margin: 0 0 0 20px;
-	padding-left: 20px;
+	margin: 0 0 0 15px;
+	padding-left: 15px;
 	display: flex;
 	align-items: center;
 	max-width: 230px;
@@ -186,7 +186,7 @@ p.lastUpdated {
 	text-transform: uppercase;
 	color: #2A2A2A;
 	margin-top: 0;
-	margin-left: 1.75em;
+	margin-left: .75em;
 }
 
 .results {
@@ -287,6 +287,10 @@ p.lastUpdated {
 	.candidate:nth-of-type(1) {
 		border-left: none;
 		padding-left: 0;
+	}
+
+	.candidate:nth-of-type(5) {
+		display: none;
 	}
 
 }

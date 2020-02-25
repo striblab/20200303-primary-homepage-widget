@@ -49,6 +49,7 @@
 
 </style>
 
+<!-- <a class="wrapperLink" href="http://startribune.com"> -->
 <div id="widgetContainer">
 	<div class="logo">
 		<div class="text">
@@ -63,9 +64,9 @@
 	<div class="candidateContainer">
 		{#each statewide_data as candidate, i}
 			{#if statewide_data[0].winner == true}
-				{#if i < 4}
+				{#if i < 5}
 				<div class="candidate">
-					{#if candidate.last !== 'Uncommited'}
+					{#if candidate.last !== 'Uncommitted'}
 					<img class="mug" src="img/{candidate.last.toLowerCase()}.jpg" alt="{candidate.last} photo"/>
 					{/if}
 					<div class="results">
@@ -86,9 +87,11 @@
 				</div>
 				{/if}
 			{:else}
-				{#if i < 4}
+				{#if i < 5}
 				<div class="candidate">
+					{#if candidate.last !== 'Uncommitted'}
 					<img class="mug" src="img/{candidate.last.toLowerCase()}.jpg" alt="{candidate.last} photo"/>
+					{/if}
 					<div class="results">
 						<!-- {#if candidate.winner == true}
 							<h2 class="winner">{candidate.last} &#10004</h2>
@@ -111,3 +114,4 @@
 	</div>
 </div>
 	<p class="lastUpdated">{ Math.round(state_precincts_pct * 100) }% PRECINCTS REPORTING</p>
+<!-- </a> -->
