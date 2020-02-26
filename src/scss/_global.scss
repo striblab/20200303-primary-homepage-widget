@@ -9,6 +9,7 @@ h2 {
 	font-size: 10px;
 	font-weight: bold;
 	letter-spacing: 0.1px;
+	color: black;
 }
 
 body {
@@ -78,10 +79,24 @@ button:focus {
 	padding-bottom: 0;
 }
 
+.wrapperLink:hover {
+	text-decoration: none;
+}
+
+.uncommitted {
+	height: 52px;
+	width: 52px;
+	margin-right: 10px;
+	background-color: #D8D8D8;
+	border-radius: 50%;
+	display: inline-block;
+}
+
 .candidateContainer {
 	display: flex;
 	flex-direction: row;
-	justify-content: flex-start;
+	// width: 100%;
+	justify-content: space-between;
 	align-items: center;
 }
 
@@ -109,9 +124,10 @@ button:focus {
 		font-weight: normal;
 		text-transform: none;
 		font-size: 10px;
-		line-height: 120%;
-		color: #231F20;
-		max-width: 80px;
+		line-height: 135%;
+		color: #1d78af;
+		width: 80px;
+		text-decoration: underline;
 	}
 
 	h3 {
@@ -120,6 +136,7 @@ button:focus {
 		letter-spacing: 0.4px;
 		margin-bottom: 2px;
 		margin-top: 0;
+		color: black;
 	}
 
 	.text {
@@ -130,18 +147,18 @@ button:focus {
 
 	img {
 		width: 36px;
-		margin-top: -28px;
-		margin-left: -4px;
+		margin-top: -30px;
+		margin-left: -5px;
 	}
 }
 
 .candidate {
 	// margin: 20px;
-	margin: 0 0 0 15px;
-	padding-left: 15px;
+	margin: 0 0 0 19px;
+	padding-left: 19px;
 	display: flex;
 	align-items: center;
-	max-width: 230px;
+	max-width: 250px;
 	border-left: .25px solid #D7D7D7;
 
 	.mug {
@@ -171,11 +188,13 @@ button:focus {
 		font-family: "Benton Sans", sans-serif;
 		font-size: 9px;
 		letter-spacing: 0.5px;
+		color: black;
 	}
 
 	.votepct {
 		font-family: "Benton Sans", sans-serif;
 		font-size: 24px;
+		color: black;
 	}
 }
 
@@ -262,6 +281,7 @@ p.lastUpdated {
 			display: block;
 			position: absolute;
 			right: 8px;
+			color: #1d78af;
 		}
 
 		h3 {
@@ -297,7 +317,13 @@ p.lastUpdated {
 
 @media (max-width: 600px) {
 	.candidate {
+		// margin: 0 0 0 20px;
+		// padding-left: 20px;
 		.mug {
+			display: none;
+		}
+
+		.uncommitted {
 			display: none;
 		}
 	}
