@@ -34,6 +34,10 @@ a {
 // 	color: rgb(0,80,160);
 // }
 
+.lastUpdatedIe {
+	display: none;
+}
+
 label {
 	display: block;
 }
@@ -142,7 +146,7 @@ button:focus {
 	.text {
 		display: flex;
 		flex-direction: column;
-		margin-left: 5px;
+		// margin-left: 5px;
 	}
 
 	img {
@@ -198,14 +202,14 @@ button:focus {
 	}
 }
 
-p.lastUpdated {
+p.lastUpdated, p.lastUpdatedIe {
 	font-family: "Benton Sans", sans-serif;
 	font-size: 7.5px;
 	letter-spacing: 0.5px;
 	text-transform: uppercase;
 	color: #2A2A2A;
 	margin-top: 0;
-	margin-left: .75em;
+	// margin-left: .75em;
 }
 
 .results {
@@ -280,7 +284,7 @@ p.lastUpdated {
 		a.rightLink {
 			display: block;
 			position: absolute;
-			right: 8px;
+			right: 0;
 			color: #1d78af;
 		}
 

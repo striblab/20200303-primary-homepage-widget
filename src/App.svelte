@@ -8,6 +8,7 @@
 	let state_precincts_pct;
 	let top_five = [];
 	let i;
+	let backup_timer;
 
 	const date_options = { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric'};
 
@@ -44,20 +45,27 @@
 			top_five = [];
 			top_five = statewide_data.slice(0,5)
 		}
-		// console.log(top_five)
+	}
 
+	let getData = async function() {
+		const response = await fetch("https://static.startribune.com/elections/projects/2020-election-results/json/results-latest.json");
+
+		if (response.ok) {
+			json = await response.json();
+			return json;
+		} else {
+			backup_timer = setTimeout(getData, 5000);
+			// data = [];  // Don't do this so you don't overwrite good results with a temporary 404
+			return [];
+		}
 	}
 
 	onMount(async function() {
-    const response = await fetch("https://static.startribune.com/elections/projects/2020-election-results/json/results-latest.json");
-    json = await response.json();
+    getData();
 		pymChild.sendHeight();
   });
 
-	setInterval(async function() {
-    const response = await fetch("https://static.startribune.com/elections/projects/2020-election-results/json/results-latest.json");
-    json = await response.json();
-  }, 15000);
+	setInterval(getData, 30000);
 
 	var pymChild = new pym.Child({ polling: 500});
 
@@ -66,8 +74,8 @@
 <style>
 
 </style>
-
-<a class="wrapperLink" href="http://startribune.com">
+{#if json.length > 0}
+<a class="wrapperLink" href="http://www.startribune.com/minnesota-primary-results-live-presidential-2020-vote-election-president-county/567017141/">
 <div id="widgetContainer">
 	<div class="logo">
 		<div class="text">
@@ -131,3 +139,4 @@
 </div>
 	<p class="lastUpdated">{ Math.round(state_precincts_pct * 100) }% PRECINCTS REPORTING</p>
 </a>
+{/if}
