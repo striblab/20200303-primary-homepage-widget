@@ -9,6 +9,7 @@
 	let top_five = [];
 	let i;
 	let backup_timer;
+	let active_candidates = ['Biden', 'Bloomberg', 'Gabbard', 'Sanders', 'Warren']
 
 	const date_options = { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric'};
 
@@ -32,28 +33,44 @@
 			top_five = []
 		}
 		else {
-			state_precincts_pct = statewide_data[0].precinctsreportingpct;
-			top_five = statewide_data.slice(0,5);
-		}
-
-
-		if (top_five.some(elem => elem.last === 'Uncommitted') && Math.round(state_precincts_pct * 100) < 50) {
-			top_five = []
-			for (i = 0; i < 6; i++) {
-				if (statewide_data[i].last === 'Uncommitted') {
-
-					continue;
-				}
-				else {
-					top_five.push(statewide_data[i])
+			if (statewide_data[0].precinctsreporting === 0) {
+				statewide_data.sort(function(a, b) {
+					return a.last.localeCompare(b.last);
+				})
+				state_precincts_pct = statewide_data[0].precinctsreportingpct;
+				for (i = 0; i < statewide_data.length; i++) {
+					if (active_candidates.includes(statewide_data[i].last)) {
+						top_five.push(statewide_data[i])
+					}
+					else {
+						continue;
+					}
 				}
 			}
-		}
-		else {
-			top_five = [];
-			top_five = statewide_data.slice(0,5)
+			else {
+				state_precincts_pct = statewide_data[0].precinctsreportingpct;
+				top_five = statewide_data.slice(0,5);
+				if (top_five.some(elem => elem.last === 'Uncommitted') && Math.round(state_precincts_pct * 100) < 50) {
+					top_five = []
+					for (i = 0; i < 6; i++) {
+						if (statewide_data[i].last === 'Uncommitted') {
+							continue;
+						}
+						else {
+							top_five.push(statewide_data[i])
+						}
+					}
+				}
+				else {
+					top_five = [];
+					top_five = statewide_data.slice(0,5)
+				}
+			}
+
 		}
 	}
+
+
 
 	let getData = async function() {
 		const response = await fetch("https://static.startribune.com/elections/projects/2020-election-results/json/results-latest.json");
