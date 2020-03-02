@@ -12,6 +12,14 @@
 
 	const date_options = { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric'};
 
+	let dropped_candidates = ['Bennet', 'Booker', 'Buttigieg', 'Castro', 'Delaney', 'Klobuchar', 'Patrick', 'Steyer', 'Williamson', 'Yang'];
+	const dropped_asterisk = function (candidate) {
+		if (dropped_candidates.includes(candidate)) {
+			return '*';
+		}
+		return '';
+	}
+
 	$ : {
 		statewide_data = json.filter(function(d) {
       return d.level == "state";
@@ -100,7 +108,7 @@
 						{#if candidate.winner == true}
 							<h2 class="winner">{candidate.last} &#10004</h2>
 						{:else}
-							<h2 class="no-winner">{candidate.last}</h2>
+							<h2 class="no-winner">{candidate.last}{dropped_asterisk(candidate.last)}</h2>
 						{/if}
 						<div class="votepct">
 							{#if candidate.winner == true}
@@ -121,7 +129,7 @@
 						<!-- {#if candidate.winner == true}
 							<h2 class="winner">{candidate.last} &#10004</h2>
 						{:else} -->
-							<h2>{candidate.last}</h2>
+							<h2>{candidate.last}{dropped_asterisk(candidate.last)}</h2>
 						<!-- {/if} -->
 						<div class="votepct">
 							<!-- {#if candidate.winner == true}
