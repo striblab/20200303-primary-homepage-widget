@@ -75,15 +75,15 @@
 
 </style>
 {#if json.length > 0}
-<a class="wrapperLink" href="http://www.startribune.com/minnesota-primary-results-live-presidential-2020-vote-election-president-county/567017141/">
+<a class="wrapperLink" target="_top" href="http://www.startribune.com/minnesota-primary-results-live-presidential-2020-vote-election-president-county/567017141/">
 <div id="widgetContainer">
 	<div class="logo">
 		<div class="text">
 			<h3>ELECTION</h3>
-			<a href="startribune.com">See Minnesota primary results</a>
+			<a target="_top" href="http://www.startribune.com/minnesota-primary-results-live-presidential-2020-vote-election-president-county/567017141/">See Minnesota primary results</a>
 		</div>
 		<img src="img/ELEX2020.svg" alt="Election 2020"/>
-		<a class="rightLink" href="startribune.com">SEE MINNESOTA RESULTS</a>
+		<a class="rightLink" target="_top" href="http://www.startribune.com/minnesota-primary-results-live-presidential-2020-vote-election-president-county/567017141/">SEE MINNESOTA RESULTS</a>
 	</div>
 
 
