@@ -107,7 +107,7 @@
 			<h3>ELECTION</h3>
 			<a target="_top" href="http://www.startribune.com/minnesota-primary-results-live-presidential-2020-vote-election-president-county/567017141/">See Minnesota primary results</a>
 		</div>
-		<img src="img/ELEX2020.svg" alt="Election 2020"/>
+		<img src="https://static.startribune.com/news/projects/all/20200303-elex-results/build/img/ELEX2020.svg" alt="Election 2020"/>
 		<a class="rightLink" target="_top" href="http://www.startribune.com/minnesota-primary-results-live-presidential-2020-vote-election-president-county/567017141/">SEE MINNESOTA RESULTS</a>
 	</div>
 
